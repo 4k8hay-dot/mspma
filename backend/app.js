@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-
 const connectDB = require("./config/db");
 const productRoutes = require("./routes/productRoutes");
 
@@ -9,8 +8,10 @@ dotenv.config();
 
 const app = express();
 
-// Connect to MongoDB
 connectDB();
+
+// Disable Express version information
+app.disable("x-powered-by");
 
 // Middleware
 app.use(cors({
